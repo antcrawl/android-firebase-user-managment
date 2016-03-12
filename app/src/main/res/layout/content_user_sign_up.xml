@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_user_sign_up" tools:context="com.antcrawl.UserSignUp">
+    tools:showIn="@layout/activity_user_sign_up" tools:context="com.antcrawl.ui.UserSignUp">
 
 
     <EditText
@@ -52,7 +52,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/signup_button"
         android:id="@+id/signup"
         android:onClick="addUser"
         android:layout_centerVertical="true"

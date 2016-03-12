@@ -1,4 +1,4 @@
-package com.antcrawl;
+package com.antcrawl.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.antcrawl.FirebaseUtill;
+import com.antcrawl.R;
 import com.antcrawl.dto.UserDetails;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;

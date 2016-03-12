@@ -1,4 +1,4 @@
-package com.antcrawl;
+package com.antcrawl.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.antcrawl.FirebaseUtill;
+import com.antcrawl.R;
 import com.antcrawl.dto.LoginDetails;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
@@ -38,24 +40,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        loginDetails.setEmail(((EditText) findViewById(R.id.first_name)).getText().toString());
-        loginDetails.setPassword(((EditText) findViewById(R.id.last_name)).getText().toString());
-
+        loginDetails.setEmail(((EditText) findViewById(R.id.user_email)).getText().toString());
+        loginDetails.setPassword(((EditText) findViewById(R.id.user_password)).getText().toString());
 
         firebase.authWithPassword(loginDetails.getEmail(), loginDetails.getPassword(), new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
 
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-                Toast.makeText(getApplicationContext(), "Login Successfully "+ authData.getUid() +"  "+ authData.getProvider() , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Login Successfully " + authData.getUid() + "  " + authData.getProvider(), Toast.LENGTH_LONG).show();
 
-                Log.d("success",authData.getUid());
+                Log.d("success", authData.getUid());
             }
 
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
-                Log.d("error ",firebaseError.toString());
-                Toast.makeText(getApplicationContext(), String.valueOf(firebaseError) , Toast.LENGTH_LONG).show();
+                Log.d("error ", firebaseError.toString());
+                Toast.makeText(getApplicationContext(), String.valueOf(firebaseError), Toast.LENGTH_LONG).show();
 
             }
         });
